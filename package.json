@@ -1,0 +1,35 @@
+{
+  "name": "bootcamp-products-api",
+  "version": "0.1.0",
+  "description": "ITWorks Elevation bootcamp - Products API",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iliubinskii/bootcamp-products-api"
+  },
+  "license": "ISC",
+  "author": "Ilia Liubinskii",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "install-deps": "npm install --strict-peer-deps",
+    "install-dev-deps": "npm install --save-dev --strict-peer-deps",
+    "start-week-8-express": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/uuid": "^9.0.8",
+    "crypto": "^1.0.1",
+    "date-fns": "3.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "joi": "^17.12.3",
+    "mongoose": "^8.3.1",
+    "uuid": "^9.0.1",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
