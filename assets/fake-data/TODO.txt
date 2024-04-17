@@ -1,0 +1,4 @@
+- Create test data with Mockaroo in .json format for all 3 routers
+- Add .json files here
+- Make sure that references are correct, i.e. categoryId in a fake product
+should refer to an existing fake category (product.categoryId=category.id)
