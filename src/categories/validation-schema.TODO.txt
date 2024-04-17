@@ -1,0 +1,7 @@
+- Add joi validation schema same way as for products and users
+
+type Category = {
+  id: String,
+  name: String,
+  thumbnailUrl: String
+}
