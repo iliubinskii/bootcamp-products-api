@@ -4,18 +4,18 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/users', userController.getUsers);
-router.get('/users/:id', userController.getUserById);
+router.get('/', userController.getUsers);
+router.get('/:id', userController.getUserById);
 router.post(
-  '/users',
+  '/',
   userMiddlewares.validateCreateUser,
   userController.createUser
 );
 router.put(
-  '/users/:id',
+  '/:id',
   userMiddlewares.validateUpdateUser,
   userController.updateUser
 );
-router.delete('/users/:id', userController.deleteUser);
+router.delete('/:id', userController.deleteUser);
 
 export default router;

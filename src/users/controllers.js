@@ -1,5 +1,5 @@
 import logger from '../logger.js';
-import userService from '../service.js';// need to create service
+import userService from './service.js';// need to create service
 
 export const getUsers = async (req, res) => {
   const users = await userService.getUsers();
