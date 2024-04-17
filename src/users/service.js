@@ -12,7 +12,7 @@ export const getUsers = async () => {
 
 export const getUserById = async (id) => {
   try {
-    return await UserModel.findByID(id);
+    return await UserModel.findById(id);
   } catch (error) {
     logger.error(error);
     return null;
