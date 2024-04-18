@@ -1,5 +1,5 @@
-import logger from "../logger.js";
-import userService from "./service.js"; // need to create service
+import logger from '../logger.js';
+import userService from './service.js'; // need to create service
 
 export const getUsers = async (req, res, next) => {
   try {
@@ -14,7 +14,7 @@ export const getUserById = async (req, res) => {
   const { id } = req.params;
   const user = await userService.getUserById(id);
   if (!user) {
-    return res.status(404).json({ error: "User not found" });
+    return res.status(404).json({ error: 'User not found' });
   }
   return res.json(user);
 };
