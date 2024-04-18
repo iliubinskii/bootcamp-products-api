@@ -32,9 +32,11 @@ class ProductService {
 
   editProduct = async (dataToUpdate) => {
     try {
+      const updatedProduct = { ...dataToUpdate };
+      delete updatedProduct.id;
       return await ProductModel.findByIdAndUpdate(
         dataToUpdate.id,
-        dataToUpdate,
+        updatedProduct,
         {
           new: true,
         }

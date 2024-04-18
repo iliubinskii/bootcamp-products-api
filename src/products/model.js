@@ -3,10 +3,11 @@ const { Schema } = mongoose;
 
 const productSchema = new Schema({
   id: { type: mongoose.Schema.ObjectId },
-  price: { type: Number, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
+  price: { type: Number, required: true },
   image: { type: String },
+  category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'category' }],
 });
 
 const ProductModel = mongoose.model('product', productSchema);
