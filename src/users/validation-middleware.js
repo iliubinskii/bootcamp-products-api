@@ -1,10 +1,14 @@
 export default {
   validateCreateUser: (req, res, next) => {
     // TODO
-    next( )
+    next();
   },
   validateUpdateUser: (req, res, next) => {
     // TODO
-    next( )
+    next();
   },
-}
+  requireExistingProducts: (req, res, next) => {
+    // TODO
+    next();
+  },
+};
