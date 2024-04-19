@@ -21,7 +21,10 @@ export default function crudControllers(crudService) {
         },
         updateItem: async (req, res, next) => {
             try {
-                const item = await crudService.updateItem(req.params.id, req.body);
+                const item = await crudService.updateItem(
+                    req.params.id,
+                    req.body
+                );
                 if (!item) {
                     return res.status(404).json({ error: "Item not found" });
                 }
