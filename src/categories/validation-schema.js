@@ -1,19 +1,25 @@
-const Joi = require("joi");
+import { string, object } from "joi";
 
-const categoryName = Joi.string().required(); // Renamed for clarity
+const categoryName = string().required(); 
 
-const categorySchema = Joi.object({
-  id: Joi.string().allow(null), // Optional for creation
+const categorySchema = object({
+  id: string().allow(null), 
   name: categoryName,
 });
 
+const updateCategorySchema = object({
+  name: categoryName,
+  description: string().min(50).max(1000).optional(),
+}).min(1);
+
 function validateCategory(data, isUpdate = false) {
-  const schema = isUpdate ? categorySchema.optional() : categorySchema; // Adjust schema based on update flag
+  const schema = isUpdate ? categorySchema.optional() : categorySchema; 
   const { error } = schema.validate(data);
   return error;
 }
 
-module.exports = {
+export default {
   categorySchema,
   validateCategory,
+  updateCategorySchema,
 };
