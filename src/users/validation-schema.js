@@ -1,13 +1,14 @@
-const Joi = require("joi");
+import { string, object, array } from "joi";
 
-const userName = Joi.string().required();
-const userEmail = Joi.string().email().required();
+const userId = string().required();
+const userName = string().required();
+const userEmail = string().email().required();
 
-const userSchema = Joi.object({
-  id: Joi.string().allow(null), // Optional for creation
+const userSchema = object({
+  id: userId,
   name: userName,
   email: userEmail,
-  products: Joi.array().items(productSchema), // reference the existing productSchema
+  products: array().items(productSchema), // reference the existing productSchema
 });
 
 function validateUser(data, isUpdate = false) {
@@ -16,7 +17,7 @@ function validateUser(data, isUpdate = false) {
   return error;
 }
 
-module.exports = {
+export default {
   userSchema,
   validateUser,
 };
