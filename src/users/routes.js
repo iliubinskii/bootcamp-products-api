@@ -1,5 +1,4 @@
 import userController from './controllers.js';
-// import userMiddlewares from './validation-middleware.js';
 import userMiddlewares from './validation-middleware.js';
 import express from 'express';
 
@@ -18,5 +17,6 @@ router.put(
   userController.updateUser
 );
 router.delete('/:id', userController.deleteUser);
+router.get('/:id/cart', userController.getUserProducts);
 
 export default router;
