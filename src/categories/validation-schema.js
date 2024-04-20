@@ -1,12 +1,15 @@
-const categoryId = Joi.string().required();
+const Joi = require("joi");
+
+const categoryName = Joi.string().required(); // Renamed for clarity
 
 const categorySchema = Joi.object({
-  id: categoryId,
-  name: Joi.string().required(),
+  id: Joi.string().allow(null), // Optional for creation
+  name: categoryName,
 });
 
-function validateCategory(data) {
-  const { error } = categorySchema.validate(data);
+function validateCategory(data, isUpdate = false) {
+  const schema = isUpdate ? categorySchema.optional() : categorySchema; // Adjust schema based on update flag
+  const { error } = schema.validate(data);
   return error;
 }
 
