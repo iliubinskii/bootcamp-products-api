@@ -8,7 +8,7 @@ const productSchema = Joi.object({
   id: productId,
   name: productName,
   price: productPrice,
-  category: Joi.array().items(Joi.string().allow(null)), // reference category by ID (string) and allow null for optional categories
+  category: Joi.array().items(Joi.string()), // reference category by ID (string)
 });
 
 const categoryId = Joi.string().required();
@@ -16,7 +16,6 @@ const categoryId = Joi.string().required();
 const categorySchema = Joi.object({
   id: categoryId,
   name: Joi.string().required(),
-  products: Joi.array().items(productSchema),
 });
 
 function validateProduct(data) {
