@@ -1,19 +1,20 @@
-import { string, object } from "joi";
+import Joi from 'joi';
+import mongoose from 'mongoose';
 
-const categoryName = string().required(); 
+const categoryName = Joi.string().required(); 
 
-const categorySchema = object({
-  id: string().allow(null), 
+export const categorySchema = Joi.object({
+  id: Joi.string().allow(null), 
   name: categoryName,
 });
 
-const updateCategorySchema = object({
-  name: categoryName,
-  description: string().min(50).max(1000).optional(),
+export const updateCategorySchema = Joi.object({
+  name: categoryName.optional(),
+  description: Joi.string().min(50).max(1000).optional(),
 }).min(1);
 
 function validateCategory(data, isUpdate = false) {
-  const schema = isUpdate ? categorySchema.optional() : categorySchema; 
+  const schema = isUpdate ? updateCategorySchema : categorySchema; 
   const { error } = schema.validate(data);
   return error;
 }
