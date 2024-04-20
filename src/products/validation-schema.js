@@ -1,37 +1,24 @@
 const Joi = require("joi");
 
-const productId = Joi.string().required();
+const productId = Joi.string().allow(null); // Optional for creation
 const productName = Joi.string().required();
 const productPrice = Joi.number().required();
+const categoryId = Joi.string().allow(null); // Optional for creation, references category ID
 
 const productSchema = Joi.object({
   id: productId,
   name: productName,
   price: productPrice,
-  category: Joi.array().items(Joi.string().allow(null)), // reference category by ID (string) and allow null for optional categories
+  category: Joi.array().items(categoryId).max(2), // Maximum 2 categories
 });
 
-const categoryId = Joi.string().required();
-
-const categorySchema = Joi.object({
-  id: categoryId,
-  name: Joi.string().required(),
-  products: Joi.array().items(productSchema),
-});
-
-function validateProduct(data) {
-  const { error } = productSchema.validate(data);
-  return error;
-}
-
-function validateCategory(data) {
-  const { error } = categorySchema.validate(data);
+function validateProduct(data, isUpdate = false) {
+  const schema = isUpdate ? productSchema.optional() : productSchema; // If true, all becomes optional
+  const { error } = schema.validate(data);
   return error;
 }
 
 module.exports = {
   productSchema,
-  categorySchema,
   validateProduct,
-  validateCategory,
 };

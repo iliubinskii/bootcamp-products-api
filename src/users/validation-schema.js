@@ -11,4 +11,13 @@ const userSchema = object({
   products: array().items(productSchema), // reference the existing productSchema
 });
 
-export default userSchema;
+function validateUser(data, isUpdate = false) {
+  const schema = isUpdate ? userSchema.optional() : userSchema; // Adjust schema based on update flag
+  const { error } = schema.validate(data);
+  return error;
+}
+
+export default {
+  userSchema,
+  validateUser,
+};
