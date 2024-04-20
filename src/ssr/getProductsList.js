@@ -1,0 +1,3 @@
+function getProductsList() {
+  return fetch();
+}
