@@ -1,14 +1,14 @@
-const Joi = require("joi");
+import { string, object, array } from "joi";
 
-const userId = Joi.string().required();
-const userName = Joi.string().required();
-const userEmail = Joi.string().email().required();
+const userId = string().required();
+const userName = string().required();
+const userEmail = string().email().required();
 
-const userSchema = Joi.object({
+const userSchema = object({
   id: userId,
   name: userName,
   email: userEmail,
-  products: Joi.array().items(productSchema), // reference the existing productSchema
+  products: array().items(productSchema), // reference the existing productSchema
 });
 
-module.exports = userSchema;
+export default userSchema;
