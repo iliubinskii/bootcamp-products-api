@@ -55,6 +55,15 @@ class ProductService {
       return null;
     }
   };
+
+  getProductsByCategory = async (categoryId) => {
+    try {
+      return await ProductModel.find({ category: categoryId });
+    } catch (error) {
+      logger.error(error);
+      return null;
+    }
+  };
 }
 
 export default new ProductService();
