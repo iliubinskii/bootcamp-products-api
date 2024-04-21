@@ -1,4 +1,5 @@
 import userService from './service.js';
+import productService from '../products/service.js';
 import crudControllers from '../crud/controllers.js';
 
 
@@ -15,7 +16,7 @@ export const getUserProducts = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    res.json(user.products);
+    const products = await Promise.all(user.products.map(productId => productService.getItemById(productId)));
 }
 
 export default {
