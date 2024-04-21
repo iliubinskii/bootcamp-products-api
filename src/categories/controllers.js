@@ -1,5 +1,6 @@
 import crudControllers from "../crud/controllers";
 import categoryService from "./service";
+import productService from "../products/service";
 
 const categoryController = crudControllers(categoryService);
 
