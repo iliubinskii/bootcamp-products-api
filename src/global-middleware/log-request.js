@@ -1,8 +1,7 @@
-import { createRequestId } from "./request-id";
-
-export function getRequestLogger(logger) {
+export default function getRequestLogger(logger) {
   return (req, res, next) => {
-    logger.info(`${req.method} ${req.originalUrl} ${createRequestId()}`);
+    const requestId = req.requestId;
+    logger.info(`${req.method} ${req.originalUrl} ${requestId}`);
     next();
   };
 }
