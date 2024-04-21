@@ -1,20 +1,21 @@
-import { string, object, array } from "joi";
+import Joi from 'joi';
+import mongoose from 'mongoose';
 
-const userId = string().required();
-const userName = string().required();
-const userEmail = string().email().required();
+const userId = Joi.string().required();
+const userName = Joi.string().required();
+const userEmail = Joi.string().email().required();
 
-const userSchema = object({
+export const userSchema = Joi.object({
   id: userId,
   name: userName,
   email: userEmail,
-  products: array().items({ type: mongoose.Schema.Types.ObjectId, ref: 'category' }), 
+  products: Joi.array().items({ type: mongoose.Schema.Types.ObjectId, ref: 'product' }), 
 });
 
-const updateUserSchema = object({
-  name: userName,
-  email: userEmail,
-  products: array().items({ type: mongoose.Schema.Types.ObjectId, ref: 'category' }), 
+export const updateUserSchema = Joi.object({
+  name: userName.optional(),
+  email: userEmail.optional(),
+  products: Joi.array().items({ type: mongoose.Schema.Types.ObjectId, ref: 'product' }).optional(), 
   description: Joi.string().min(50).max(1000).optional(),
 }).min(1);
 

@@ -1,5 +1,5 @@
-import joiValidationMiddleware from "../crud/validation-middleware/joi";
-import { userSchema, updateUserSchema } from "./validation-schema";
+import joiValidationMiddleware from "../crud/validation-middleware/joi.js";
+import { userSchema, updateUserSchema } from "./validation-schema.js";
 
 const validateUser = joiValidationMiddleware(userSchema, updateUserSchema);
 
