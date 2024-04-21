@@ -1,18 +1,19 @@
-import app from './app.js';
-import appSsr from './ssr/app-ssr.js';
-import { PORT } from './config/index.js';
-import { PORT_SSR } from './config/index.js';
-import { connect } from './db/mongoose.js';
+import app from "./app.js";
+import appSsr from "./ssr/app-ssr.js";
+import { PORT } from "./config/index.js";
+import { PORT_SSR } from "./config/index.js";
+import { connect } from "./db/mongoose.js";
+import logger from "./logger.js";
 
 connect()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server started at HTTP: //localhost:${PORT}`);
+      logger.log(`Server started at HTTP: //localhost:${PORT}`);
     });
     appSsr.listen(PORT_SSR, () => {
-      console.log(`SSR server started at HTTP: //localhost:${PORT_SSR}`);
+      logger.log(`SSR server started at HTTP: //localhost:${PORT_SSR}`);
     });
   })
   .catch((error) => {
-    console.error(error);
+    logger.error(error);
   });
