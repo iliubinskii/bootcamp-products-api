@@ -3,9 +3,12 @@ import mongoose from 'mongoose';
 
 const categoryName = Joi.string().required(); 
 
+//const description: Joi.string().min(50).max(1000).optional(); 
+
 export const categorySchema = Joi.object({
   id: Joi.string().allow(null), 
   name: categoryName,
+  description: Joi.string().min(50).max(1000).optional(),
 });
 
 export const updateCategorySchema = Joi.object({
