@@ -3,8 +3,8 @@ import {
   CLOUDINARI_API_KEY,
   CLOUDINARY_CLOUD_NAME,
   CLOUDINARY_SECRET_KEY,
-} from "../../config/index.js";
-import logger from "../../logger.js";
+} from "../config/index.js";
+import logger from "../logger.js";
 import { unlink } from "fs/promises";
 
 cloudinary.config({
