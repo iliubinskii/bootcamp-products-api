@@ -1,5 +1,6 @@
 import express from "express";
-import userRouters from "./users/routes.js";
+import userRouter from "./users/routes.js";
+import categoriesRouter from "./categories/routes.js";
 import productsRouter from "./products/routes.js";
 import cors from "cors";
 import createRequestId from "./global-middleware/request-id.js";
@@ -12,7 +13,8 @@ app.use(express.json());
 app.use(createRequestId);
 app.use(getRequestLogger(logger));
 
-app.use("/users", userRouters);
+app.use("/categories", categoriesRouter);
+app.use("/users", userRouter);
 app.use("/products", productsRouter);
 
 app.get("/", (req, res) => {
