@@ -14,7 +14,7 @@ export const getCategoryProducts = async (req, res) => {
     const categoryId = req.params.id;
     const products = await productService.getProductsByCategory(categoryId);
     if (!products.length) {
-      return res.status(404).json({ error: 'No products found for this category' });
+      return [];
     }
     res.json(products);
   }
