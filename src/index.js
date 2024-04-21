@@ -8,10 +8,10 @@ import logger from "./logger.js";
 connect()
   .then(() => {
     app.listen(PORT, () => {
-      logger.log(`Server started at HTTP: //localhost:${PORT}`);
+      logger.info(`Server started at HTTP: //localhost:${PORT}`);
     });
     appSsr.listen(PORT_SSR, () => {
-      logger.log(`SSR server started at HTTP: //localhost:${PORT_SSR}`);
+      logger.info(`SSR server started at HTTP: //localhost:${PORT_SSR}`);
     });
   })
   .catch((error) => {
