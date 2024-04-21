@@ -22,6 +22,8 @@ export function renderHomePage(data) {
             <div id="contents" class="container mt-5">${renderProducts(
               data.products
             )}</div>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
           </body>
         </html>
       `;

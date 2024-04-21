@@ -1,10 +1,10 @@
 const renderCategories = (content) => {
   let html = /*html*/ `
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Categories
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
+        <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">`;
 
   if (content) {
     for (let i = 0; i < content.length; i++) {
