@@ -11,7 +11,9 @@
    npm install
    ```
 
-3. Build app in development mode and run in watch mode
+3. Create uploads folder
+
+4. Build app in development mode and run in watch mode
 
    ```bash
    npm run start
