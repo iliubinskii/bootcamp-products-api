@@ -16,11 +16,8 @@ appSsr.use(createRequestId);
 appSsr.use(getRequestLogger(ssrLogger));
 
 appSsr.get("/", async (req, res) => {
-  //const categories = await getCategoriesList();
-  const categories = [
-    { id: 1, name: "category 1" },
-    { id: 2, name: "category 2" },
-  ];
+  const categories = await getCategoriesList();
+
   const products = await getProductsList();
   res.send(renderHomePage({ categories: categories, products: products }));
 });
