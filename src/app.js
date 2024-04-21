@@ -23,4 +23,13 @@ app.get("/health", (req, res) => {
   res.json({ ok: new Date().toDateString(), uuid: req.requestId });
 });
 
+app.all("*", (req, res) => {
+  res.status(404).json({ error: "Not found" });
+});
+
+app.use((err, req, res, next) => {
+  logger.error(err, { requestId: req.requestId });
+  res.status(500).json({ error: "Internal Server Error" });
+});
+
 export default app;
