@@ -1,4 +1,5 @@
-import { PORT } from '../../config/index.js';
+import { PORT } from "../../config/index.js";
+import { ssrLogger } from "../../logger.js";
 
 async function getProductsList(id) {
   try {
@@ -10,7 +11,7 @@ async function getProductsList(id) {
     const result = await response.json();
     return result;
   } catch (error) {
-    console.log(error);
+    ssrLogger.error(error);
   }
 }
 
