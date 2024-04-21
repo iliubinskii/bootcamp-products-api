@@ -1,5 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-export function createRequestId() {
-    return uuidv4()
+export default function createRequestId(req, res, next) {
+  req.requestId = uuidv4();
+  next();
 }
